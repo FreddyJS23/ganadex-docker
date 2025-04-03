@@ -1,0 +1,6 @@
+[submodule "frontEnd"]
+	path = frontEnd
+	url = https://github.com/FreddyJS23/ganadex
+[submodule "backEnd"]
+	path = backEnd
+	url = https://github.com/FreddyJS23/ganadex-api
