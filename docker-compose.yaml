@@ -1,0 +1,41 @@
+#cargar contrucion del backend
+include:
+  - path: ./backend/docker-compose.yaml
+    project_directory: ./backEnd
+    env_file: ./backEnd/.env
+  
+
+networks:
+  ganadex:
+    driver: bridge
+
+
+services:
+  #server
+  nginx_front:
+    image: nginx:alpine
+    container_name: nginx_front
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"   # HOST:CONTAINER
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - ganadex_frontend
+
+  #frontend
+  ganadex_frontend:
+    container_name: ganadex_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports: 
+      - "3000:3000"  # HOST:CONTAINER
+    env_file:
+      - ./frontend/.env.production.local
+    environment:
+      API_URL_BASE: "http://nginx_laravel:81/"  #se utiliza el nombre del servicio nginx, como el nginx de laravel no usa un puerto por default como el 80, sino que usa otro, se debe especificar el nombre del servicio junto con el puerto
+      API_URL: "http://nginx_laravel:81/api/"
+      NEXT_PUBLIC_BASE_URL: "http://ganadex_frontend"  
+      ORIGIN: ganadex_frontend
