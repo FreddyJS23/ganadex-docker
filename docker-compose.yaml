@@ -1,8 +1,8 @@
 #cargar contrucion del backend
 include:
   - path: ./backend/docker-compose.yaml
-    project_directory: ./backEnd
-    env_file: ./backEnd/.env
+    project_directory: ./backend
+    env_file: ./backend/.env
   
 
 networks:
