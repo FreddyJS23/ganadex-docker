@@ -6,7 +6,7 @@
 - Git instalado (para clonar el repositorio en modo online)
 
 ## Estructura del proyecto
-
+```
 project/
 ├── backend/
 │ ├── docker-compose.yaml
@@ -18,6 +18,7 @@ project/
 │ └── ...
 └── nginx/
 └── default.conf
+```
 
 # 1. Clonar repositorio
 ```bash
