@@ -44,11 +44,11 @@ Una vez iniciado los contenedores, se debe utilizar la consola interna del conte
 docker compose -it exec ganadex_backend php artisan key:generate
 ```
 Esto creara un nuevo string para `APP_KEY.` Al hacer uso de la  consola interna del contenedor para generar la key detendra el servidor interno de php. Solo debe detener los contenedores y volver iniciar
-######Detener
+###### Detener
 ```bash
 docker compose down
 ```
-######Iniciar
+###### Iniciar
 ```bash
 docker compose up -d
 ```
@@ -70,11 +70,11 @@ Una vez iniciado los contenedores, se debe utilizar la consola interna del conte
 docker compose -it exec ganadex_frontend bunx auth secre t
 ```
 Esto generara una cadena de caracteres que debera copiar y pegar en  `AUTH_SECRET= `. del `.env.production.local` Debera reiniciar los contenedores para el correcto funcionamiento
-######Detener
+###### Detener
 ```bash
 docker compose down
 ```
-######Iniciar
+###### Iniciar
 ```bash
 docker compose up -d
 ```
